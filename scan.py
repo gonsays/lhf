@@ -3,7 +3,7 @@
 import os
 import sys
 import paramiko
-import Queue
+import queue
 from threading import Thread
 
 def ssh_login(q):
@@ -29,7 +29,7 @@ def ssh_login(q):
         q.task_done()
 
 def scan(num_threads=10):
-    q = Queue.Queue()
+    q = queue.Queue()
 
     for line in sys.stdin.readlines():
         pi = line.split(':')
